@@ -1,0 +1,463 @@
+// Variables
+@import '_variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
+
+// FontAwesome
+@import '../fontawesome/scss/fontawesome';
+@import '../fontawesome/scss/fa-solid';
+@import '../fontawesome/scss/fa-brands';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,400,700&display=swap');
+
+html,
+body {
+	overflow-x: hidden;
+}
+
+h1 {
+	text-transform: uppercase;
+}
+
+hr {
+	border-top: 4px solid black;
+	max-width: 200px;
+	margin: 2rem auto;
+
+	&.inverse {
+		border-top: 4px solid white;
+	}
+}
+
+nav#top-navigation,
+footer#page-footer {
+	padding: 0;
+	font-weight: 200;
+
+	ul.navbar-nav {
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+nav#primary-navigation {
+	font-size: 1.2rem;
+	font-weight: 200;
+
+	#primary-navigation-dropdown {
+		.nav-container {
+			display: flex;
+	    flex-direction: column;
+	    align-items: flex-end;
+	    justify-content: space-between;
+		}
+	}
+	#header-social-icons {
+		padding: 0.5rem;
+
+		a, a:hover, a:focus {
+			color: $navbar-dark-color;
+			margin-left: 1.5rem;
+		}
+	}
+	ul.navbar-nav {
+		li.nav-item {
+			padding: 0 0 0 1.5rem;
+
+			@include media-breakpoint-down(md) {
+				text-align: right;
+				padding: 0 0.5rem 0 0;
+			}
+		}
+	}
+	.navbar-brand {
+		img.site-logo {
+			max-width: 300px;
+			height: auto;
+
+			@include media-breakpoint-down(md) {
+				max-width: 200px;
+			}
+		}
+	}
+}
+
+
+section#hero {
+	position: relative;
+	height: 250px;
+
+	div.content {
+		position: absolute;
+		padding: 2rem 4rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		height: 100%;
+		width: calc(100% - 30px);
+
+		h1 {
+			
+		}
+		h2 {
+			font-size: 1.2rem;
+			font-weight: $font-weight-normal;
+		}
+
+		@include media-breakpoint-down(md) {
+			padding: 2rem 1rem;
+			width: 100%;
+		}
+	}
+	img.background {
+		height: 100%;
+		width: 100%;
+		object-position: center;
+		object-fit: cover;
+	}
+	&.bg-image {
+		height: 500px;
+
+		* {
+			color: white;
+		}
+		div.content {
+			background: hsb(114,50,20,0.5);
+		}
+	}
+	@include media-breakpoint-down(md) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+
+section#blog {
+	margin-top: 4rem;
+}
+
+
+.page article,
+.single article {
+	margin: 4rem 0;
+
+	ul.services-list {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
+		list-style: none;
+		padding-inline-start: 0;
+
+		li {
+			text-align: center;
+			margin-bottom: 1rem;
+
+			span {
+				display: block;
+				padding: 1rem;
+				border: 2px solid $primary;
+			}
+		}
+	}
+}
+
+
+aside#sidebar {
+	margin: 4rem 0;
+
+	@include media-breakpoint-down(md) {
+		margin: 0;
+	}
+	ul.xoxo {
+		padding-inline-start: 0;
+
+		div {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+
+section#goals {
+	margin: 4rem 0;
+
+	div.goal-item {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		border: 2px solid $primary;
+
+		i {
+			margin-bottom: 2rem;
+			color: $primary;
+		}
+	}
+}
+
+
+section#services {
+	margin: 4rem 0;
+	text-align: center;
+
+	ul.services-list {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
+		list-style: none;
+		padding-inline-start: 0;
+
+		li {
+			width: percentage(1/3);
+			text-align: center;
+			margin-bottom: 1rem;
+
+			@include media-breakpoint-down(md) {
+				width: percentage(1/1);
+			}
+		}
+	}
+}
+
+
+section#contact {
+	margin: 4rem 0;
+	text-align: center;
+
+	i {
+		color: $primary;
+	}
+	a.contact-item {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		font-size: 1.2rem;
+		border: 2px solid $primary;
+		background: transparent;
+		transition: background 250ms;
+
+		&:hover, &:focus {
+			text-decoration: none;
+			background: $primary;
+			color: white;
+			transition: background 250ms;
+
+			i {
+				color: white;
+			}
+		}
+	}
+	form.wpforms-form {
+		.wpforms-field-container {
+			@extend .form-row;
+		}
+		.wpforms-field {
+			input:not([type="checkbox"]),
+			textarea {
+				@extend .form-control;
+				max-width: 100%;
+				border: 2px solid $primary;
+			}
+			textarea {
+				min-height: 6em;
+			}
+			.wpforms-error {
+				text-align: left;
+				font-size: $font-size-base;
+				font-weight: 200;
+			}
+		}
+		.wpforms-submit-container {
+			input[type="submit"],
+			button[type="submit"] {
+				@extend .btn;
+				@extend .btn-lg;
+				@extend .btn-outline-primary;
+				max-width: 350px;
+				width: 100%;
+				border: 2px solid $primary;
+
+				@include media-breakpoint-down(md) {
+					max-width: 100%;
+					width: 100%;
+				}
+			}
+		}
+	}
+	.wpforms-confirmation-container-full {
+		border: 2px solid $primary;
+		background: $primary;
+		color: white;
+	}
+}
+
+
+footer#page-footer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	background: $secondary;
+	border-top: $primary 10px solid;
+	font-weight: 200;
+	height: 100%;
+	min-height: 300px;
+	color: $footer-color;
+	overflow-y: hidden;
+
+	img.footer-logo {
+		position: absolute;
+		left: 0;
+		bottom: -60px;
+		opacity: 0.1;
+		width: 300px;
+		height: auto;
+
+		@include media-breakpoint-down(sm) {
+			position: static;
+			margin-bottom: -60px;
+    	width: 100%;
+		}
+	}
+	div.container {
+		position: relative;
+	}
+	nav#footer-navigation {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-end;
+		margin-bottom: 1rem;
+
+		@include media-breakpoint-down(md) {
+			display: block;
+			text-align: right;
+		}
+		@include media-breakpoint-down(sm) {
+			text-align: center;
+		}
+		ul.navbar-nav {
+			width: auto;
+			font-size: 1.2rem;
+			font-size: 1.2rem;
+
+			@include media-breakpoint-down(md) {
+				display: block;
+			}
+
+			li.nav-item {
+				padding: 0 0 0 1.5rem;
+
+				@include media-breakpoint-down(md) {
+					padding: 0;
+				}
+			}
+			a.nav-link {
+				color: $footer-color;
+			}
+		}
+		#footer-social-icons {
+			a, a:hover, a:focus {
+				margin-left: 1.5rem;
+				color: $footer-color;
+				text-decoration: none;
+
+				@include media-breakpoint-down(sm) {
+					display: block;
+					margin-left: 0;
+					margin-bottom: 1rem;
+				}
+			}
+		}
+		#page-sub-footer {
+			font-size: 0.8rem;
+			color: $footer-faded-color;
+
+			@include media-breakpoint-down(sm) {
+				margin-top: 2rem;
+			}
+			span {
+				margin-left: 1.5rem;
+
+				@include media-breakpoint-down(sm) {
+					display: block;
+					margin-left: 0;
+					margin-bottom: 0.5rem;
+				}
+			}
+		}
+	}
+}
+
+
+.ngg-gallery-thumbnail img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
+}
+
+
+nav#pagination {
+	margin-top: 2rem;
+
+	ul.page-numbers {
+		@extend .pagination;
+		@extend .pagination-lg;
+		display: flex;
+	  justify-content: center;
+
+		li {
+			@extend .page-item;
+
+			a, .dots, .current {
+				@extend .page-link;
+			}
+			.current {
+				color: white;
+				background: $primary;
+			}
+		}
+	}
+}
+
+
+.wp-block-image figure {
+	$margin-spacing: 4rem;
+	text-align: center;
+
+	&.alignleft {
+		float: left;
+		margin: 2rem $margin-spacing 2rem 0;
+	}
+	&.alignright {
+		float: right;
+		margin: 2rem 0 2rem $margin-spacing;
+	}
+	&.alignnone,
+	&.aligncenter {
+		margin: 1rem 0;
+	}
+	&.alignnone,
+	&.aligncenter,
+	&.alignleft,
+	&.alignright {
+		@extend .img-fluid;
+		border: 2px solid $primary;
+		padding: 0.5rem;
+
+		@include media-breakpoint-down(sm) {
+			display: block;
+	    width: 100%;
+	  }
+	}
+}

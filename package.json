@@ -16,7 +16,7 @@
     "vanilla-lazyload": "^12.0.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.2.2",
     "sass": "^1.21.0",
     "sass-loader": "^7.1.0",
